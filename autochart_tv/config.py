@@ -9,18 +9,27 @@ from .tools import validate
 class Configuration:
     CONFIG_PATH = Path(__file__).parent.parent / 'config.toml'
 
-    SERVER_DEFAULT = {'title': 'autochart-tv'}
-
-    CONFIG_DEFAULT = {'server': SERVER_DEFAULT}
+    CHART_DEFAULT = {'title': 'autochart-tv',
+                     'interval': '1m',
+                     'timezone': 'UTC',
+                     'theme': 'Dark',
+                     'barstyle': 'Candles',
+                     'studies':['bb']}
+                     
+    CONFIG_DEFAULT = {'chart': CHART_DEFAULT}
 
     def __init__(self):
         self.logger = structlog.get_logger()
         self.settings = None
         self._load_config_file()
 
-    def get_server_setting(self, setting):
-        validate(setting, self.settings['server'], 'server')
-        return self.settings['server'][setting]
+    def get_settings(self):
+        self._load_config_file()
+        return self.settings
+
+    def get_chart_setting(self, setting):
+        validate(setting, self.settings['chart'], 'chart')
+        return self.settings['chart'][setting]
 
     def _read_config_file(self):
         with open(Configuration.CONFIG_PATH, 'r') as file:

@@ -1,3 +1,3 @@
-from autochart_tv import chart_server
+from autochart_tv.chart_server import ChartServer
 
-chart_server.ChartServer.get_server().run(debug=True)
+ChartServer.get_server().run(debug=True)

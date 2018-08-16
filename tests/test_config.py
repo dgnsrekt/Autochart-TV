@@ -27,22 +27,22 @@ def test_config_file_not_found_error(configuration):
     assert configuration.CONFIG_PATH.exists()
 
 
-def test_configuration_get_server_setting(configuration):
-    assert configuration.get_server_setting('title') == 'autochart-tv'
+def test_configuration_get_chart_setting(configuration):
+    assert configuration.get_chart_setting('title') == 'autochart-tv'
 
 
-def test_configuration_get_server_setting_validation_error(configuration):
+def test_configuration_get_chart_setting_validation_error(configuration):
     with pytest.raises(ValidationError):
-        configuration.get_server_setting('bad-title')
+        configuration.get_chart_setting('bad-title')
 
 
 def test_create_default_config_file(configuration):
-    test_toml = toml.dumps({'server': {'title': 'faketitle'}})
+    test_toml = toml.dumps({'chart': {'title': 'faketitle'}})
     with open(configuration.CONFIG_PATH, 'w') as file:
         file.write(test_toml)
     configuration._load_config_file()
 
-    assert not configuration.get_server_setting('title') == 'autochart-tv'
+    assert not configuration.get_chart_setting('title') == 'autochart-tv'
 
     configuration._create_default_config_file()
-    assert configuration.get_server_setting('title') == 'autochart-tv'
+    assert configuration.get_chart_setting('title') == 'autochart-tv'

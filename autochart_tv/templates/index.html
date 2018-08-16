@@ -30,8 +30,9 @@
                     "hideideas": true,
                     "container_id": "{{container_id}}",
                     "studies": [
-                        "BB@tv-basicstudies"
-                    ]
+                        {% for study in chart.studies %}
+                        "{{study}}",
+                        {% endfor %}]
                 });
             </script>
             <!-- TradingView Widget END -->

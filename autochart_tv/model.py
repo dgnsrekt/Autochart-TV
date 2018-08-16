@@ -21,12 +21,10 @@ class ChartModel(BaseModel):
             kwarg = {'name': name}
             ChartModel.create(**kwarg)
             if len(ChartModel) > 9:
-                # oldest = ChartModel.select().limit(1).get()
-
                 oldest = ChartModel.select()
                 oldest[0].delete_instance()
-                # oldest.delete_instance()
             return True
+
         except IntegrityError:
             return False
 
@@ -41,16 +39,12 @@ class ChartModel(BaseModel):
             return True
         return False
 
+    def clear_all():
+        query_ = ChartModel.select()
+        for q in query_:
+            q.delete_instance()
 
+#TODO: may need to move this
 with db:
     db.drop_tables([ChartModel])
     db.create_tables([ChartModel])
-
-# ChartModel.add('BTC')
-# print(ChartModel.query())
-# ChartModel.add('ETH')
-# print(ChartModel.query())
-# ChartModel.add('ZCH')
-# print(ChartModel.query())
-# ChartModel.delete_last()
-# print(ChartModel.query())
