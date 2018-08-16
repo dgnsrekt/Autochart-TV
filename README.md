@@ -2,8 +2,8 @@
 automated tradingview widget viewer
 
 Basic Idea
-![Alt Text](https://github.com/dgnsrekt/autochart-tv/blob/master/doc/autochart1.gif)
-![Alt Text](https://github.com/dgnsrekt/autochart-tv/blob/master/doc/autochart2.gif)
+![Alt Text](https://github.com/dgnsrekt/autochart-tv/blob/master/doc/img/autochart1.gif)
+![Alt Text](https://github.com/dgnsrekt/autochart-tv/blob/master/doc/img/autochart2.gif)
 
 # install ccxt
 pipenv install --skip-lock ccxt
