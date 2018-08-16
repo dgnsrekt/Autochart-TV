@@ -89,3 +89,8 @@ ENV/
 .ropeproject
 *.npy
 *.pkl
+
+# autochart-tv
+pytests.ini
+.pytest_cache
+pytest.ini

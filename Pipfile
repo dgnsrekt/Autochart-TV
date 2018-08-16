@@ -4,11 +4,18 @@ verify_ssl = true
 name = "pypi"
 
 [dev-packages]
+pytest = "*"
+pytest-watch = "*"
 
 [packages]
 flask = "*"
 selenium = "*"
 prompt-toolkit = "*"
+toml = "*"
+structlog = "*"
+iexfinance = "*"
+ccxt = "*"
+peewee = "*"
 
 [requires]
 python_version = "3.6"
