@@ -16,6 +16,8 @@ structlog = "*"
 iexfinance = "*"
 ccxt = "*"
 peewee = "*"
+click = "*"
+fuzzyfinder = "*"
 
 [requires]
 python_version = "3.6"
