@@ -94,3 +94,5 @@ ENV/
 pytests.ini
 .pytest_cache
 pytest.ini
+*.db
+history.txt

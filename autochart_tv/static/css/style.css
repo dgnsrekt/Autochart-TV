@@ -1,0 +1,178 @@
+html {
+    overflow-y: hidden;
+    height: 100%;
+}
+
+body {
+    background-color: #0f0f0f;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 10pt;
+    color: #eee;
+    height: 100%;
+    margin: 0;
+}
+
+#menu {
+    z-index: 1000;
+    width: 100%;
+    position: relative;
+    float: left;
+    clear: both;
+    background-color: #000;
+    padding: 5px 0;
+}
+
+#content {
+    z-index: 250;
+    width: 100%;
+    position: relative;
+    float: left;
+    clear: both;
+    height: 100%;
+}
+
+section {
+    width: 33.2%;
+    height: 33.2%;
+}
+
+.menu-left {
+    float: left;
+    padding-left: 5px;
+    width: 33%;
+}
+
+.menu-right {
+    float: right;
+    padding-right: 5px;
+    width: 33%;
+    text-align: right;
+}
+
+.hideMenu .drop-down {
+    display: none;
+}
+
+.menu-charts, .menu-info {
+    position: absolute;
+    z-index: 500;
+    background-color: rgba(0, 0, 0, 0.9);
+    -moz-border-radius: 0 0 10px 10px;
+    -webkit-border-radius: 0 0 10px 10px;
+    -khtml-border-radius: 0 0 10px 10px;
+    border-radius: 0 0 10px 10px;
+    border: 1px solid #888;
+    border-top: none;
+    text-align: left;
+    margin: 0 5px 15px;
+    padding: 0 20px 10px;
+}
+
+.site-title {
+    font-size: 12pt;
+    position: relative;
+    z-index: 1000;
+    width: 30%;
+    text-align: center;
+    padding-top: 1px;
+    float: left;
+}
+
+.menu-charts {
+    left: 0;
+}
+
+.menu-info {
+    right: 0;
+    max-width: 600px;
+}
+
+.menu-charts:hover, .menu-info:hover {
+    z-index: 600;
+}
+
+.menu-charts ul {
+    border-left: 1px dotted #6BF;
+    float: left;
+    margin: 0 0 0 5px;
+    padding: 0 0 0 5px;
+}
+
+.menu-charts li {
+    list-style: none;
+    color: #eee;
+}
+
+.menu-charts ul.first {
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu-charts-header, .menu-info-header {
+    color: #FFF;
+    max-width: 50%;
+    cursor: pointer;
+    padding: 0 10px;
+}
+
+.menu-charts li.chart-option:hover {
+    color: #FC0;
+}
+
+.source-list-title {
+    padding-top: 5px;
+    font-weight: 700;
+}
+
+.exchange-separator {
+    margin-top: 1px;
+    padding-top: 1px;
+    border-top: 1px dotted #6BF;
+}
+
+#content section {
+    position: relative;
+    float: left;
+}
+
+#content iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+a {
+    color: #6BF;
+    text-decoration: none;
+}
+
+h1, h1 a {
+    font-size: 8pt;
+    color: #FC0;
+    line-height: 1em;
+    width: 100%;
+    position: relative;
+    z-index: 10;
+    margin: 0;
+}
+
+h1 {
+    color: #fff;
+    margin-bottom: -45px;
+    margin-top: 30px;
+    padding-left: 10px;
+    width: 150px;
+}
+
+.donation-address {
+    color: #0a0;
+}
+
+.showMenu .drop-down, .hideMenu .menu-left:hover .drop-down, .hideMenu .menu-right:hover .drop-down {
+    display: block;
+}
+
+a:hover, a:active {
+    color: #FFF;
+}
