@@ -55,13 +55,6 @@ tickers = deque(maxlen=9)
 tickers.append('BITTREX:BTCUSDT')
 
 
-def write(data):
-    p = Path(__file__)
-    filename = p.parent / 'autochart_tv' / 'static' / 'json' / 'tickers.json'
-    with open(filename, 'w') as file:
-        file.write(json.dumps(list(data)))
-
-
 class MyChrome(webdriver.Chrome):
     def quit(self):
         webdriver.Chrome.quit(self)
@@ -72,7 +65,6 @@ from autochart_tv.model import ChartModel, db
 import sys
 from random import choice
 
-write(tickers)
 driver = MyChrome()
 driver.get(url)  # tested in combination with scrapy
 
