@@ -29,4 +29,4 @@ class ChartServer:
 
 if __name__ == '__main__':
     app = chart_server.get_server()
-    app.run(debug=False)
+    app.run(debug=True)
