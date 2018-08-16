@@ -1,8 +1,8 @@
 $(document).ready(function() {
     var elements = document.getElementsByClassName('tradingview');
-    if (elements.length <= 1) {
+    if (elements.length == 1) {
         document.getElementsByTagName('section')[0].style.height = '100%'
-        document.getElementsByTagName('section')[1].style.width = '100%'
+        document.getElementsByTagName('section')[0].style.width = '100%'
     }
 
     if (elements.length == 2) {
