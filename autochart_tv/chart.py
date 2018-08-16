@@ -3,6 +3,7 @@ from .tools import validate
 
 
 class Chart:
+    
     def __init__(self,
                  symbol='BITFINEX:BTCUSD',
                  interval='1d',

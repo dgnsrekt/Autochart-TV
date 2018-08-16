@@ -13,10 +13,6 @@ class ChartServer:
 
         @app.route('/')
         def home():
-            # filename = Path(app.static_folder) / 'json' / 'tickers.json'
-            # with open(filename, 'r') as file:
-                # tickers = json.loads(file.read())
-
             tickers = ChartModel.query()
             print(tickers)
 
