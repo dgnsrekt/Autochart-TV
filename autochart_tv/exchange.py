@@ -20,6 +20,10 @@ class ExchangeInterface:
         self._load_stock_symbols()
 
     @property
+    def crypto_exchanges(self):
+        return ExchangeInterface.CRYPTO_EXCHANGES
+
+    @property
     def all_symbols(self):
         return self.stocks + self.crypto_tickers + self.crypto_tickers_with_exchange
 
