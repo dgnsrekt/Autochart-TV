@@ -9,7 +9,9 @@ def test_import():
 def exchange_interface_fixture():
     exchange = ExchangeInterface(auto_load=False)
     exchange.crypto_tickers = ['ETCBTC', 'ZRXETH', 'ZECXMR', 'BTCUSD', 'NEOBTC']
-    exchange.crypto_tickers_with_exchange = ['POLONIEX:EOSUSDT', 'POLONIEX:ETCBTC', 'POLONIEX:STEEMBTC', 'POLONIEX:XBCBTC', 'POLONIEX:NEOSBTC',]
+    exchange.crypto_tickers_with_exchange = ['POLONIEX:EOSUSDT', 'POLONIEX:ETCBTC',
+                                             'POLONIEX:STEEMBTC', 'POLONIEX:XBCBTC',
+                                             'POLONIEX:NEOSBTC',]
     exchange.stocks = ['PSC', 'TUSDUSDT', 'CMSS', 'EEMV', 'CLLS', 'LMAT', 'CROP', 'ADAUSDT']
     return exchange
 

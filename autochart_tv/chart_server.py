@@ -1,6 +1,6 @@
 from .chart import Chart
 from .config import Configuration
-from .model import ChartModel, db
+from .model import AutoChartModel
 from flask import Flask, render_template, url_for, request, redirect
 from pathlib import Path
 import random
@@ -19,7 +19,7 @@ class ChartServer:
 
         @app.route('/')
         def home():
-            tickers = ChartModel.query()
+            tickers = AutoChartModel.query()
             settings = chart_config.get_settings()
             ChartServer.logger.info(f'current settings: {str(settings)}')
             ChartServer.logger.info(f'open charts: {str(tickers)}')

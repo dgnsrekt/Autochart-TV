@@ -31,20 +31,29 @@ class ExchangeInterface:
     def all_crypto_symbols(self):
         return self.crypto_tickers + self.crypto_tickers_with_exchange
 
+    @staticmethod
+    def max_amount(amount):
+        if amount < 9:
+            return amount
+        return 9
+
     def get_random_symbols(self, amount=None):
         if amount:
+            amount = ExchangeInterface.max_amount(amount)
             return random.choices(self.all_symbols, k=amount)
         else:
             return random.choice(self.all_symbols)
 
     def get_random_stock(self, amount=None):
         if amount:
+            amount = ExchangeInterface.max_amount(amount)
             return random.choices(self.stocks, k=amount)
         else:
             return random.choice(self.stocks)
 
     def get_random_crypto(self, amount=None):
         if amount:
+            amount = ExchangeInterface.max_amount(amount)
             return random.choices(self.all_crypto_symbols, k=amount)
         else:
             return random.choice(self.all_crypto_symbols)
@@ -84,5 +93,5 @@ if __name__ == '__main__':
     print(x.stocks)
     print(x.all_symbols)
     print(x.get_random_symbols(9))
-    print(x.get_random_stocks(9))
+    print(x.get_random_stock(9))
     print(x.get_random_crypto(9))
