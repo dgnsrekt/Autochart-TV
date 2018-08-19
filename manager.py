@@ -53,13 +53,14 @@ class DeleteCommand(Command):
 
 class ChartCommand(Command):
     def execute(self, *tickers):
-        refresh = False
+        refresh = []
         for ticker in tickers:
             if ticker:
-                print(ticker)
-                refresh = AutoChartModel.add(ticker)
-        if refresh:
-            RefreshCommand().execute()
+                # print(ticker)
+                is_data_new = AutoChartModel.add(ticker)
+                refresh.append(is_data_new)
+        if True in refresh:
+            RefreshCommand().execute() #TODO: Alert sound here
 
 class RandomCommand(Command):
     def execute(self, *args):
