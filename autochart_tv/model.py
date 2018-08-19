@@ -4,24 +4,24 @@ from peewee import *
 from peewee import Model, SqliteDatabase
 import structlog
 
-db = SqliteDatabase('deleteme.db')
+AutoChartDatabase = SqliteDatabase('AutoChart.db')
 
 
 class BaseModel(Model):
 
     class Meta:
-        database = db
+        database = AutoChartDatabase
 
 
-class ChartModel(BaseModel):
+class AutoChartModel(BaseModel):
     name = CharField(unique=True)
 
     def add(name):
         try:
             kwarg = {'name': name}
-            ChartModel.create(**kwarg)
-            if len(ChartModel) > 9:
-                oldest = ChartModel.select()
+            AutoChartModel.create(**kwarg)
+            if len(AutoChartModel) > 9:
+                oldest = AutoChartModel.select()
                 oldest[0].delete_instance()
             return True
 
@@ -29,22 +29,22 @@ class ChartModel(BaseModel):
             return False
 
     def query():
-        query_ = ChartModel.select()
+        query_ = AutoChartModel.select()
         return [x.name for x in query_]
 
     def delete_last():
-        if len(ChartModel) > 0:
-            latest = ChartModel.select()
+        if len(AutoChartModel) > 0:
+            latest = AutoChartModel.select()
             latest[-1].delete_instance()
             return True
         return False
 
     def clear_all():
-        query_ = ChartModel.select()
+        query_ = AutoChartModel.select()
         for q in query_:
             q.delete_instance()
 
 #TODO: may need to move this
-with db:
-    db.drop_tables([ChartModel])
-    db.create_tables([ChartModel])
+with AutoChartDatabase:
+    AutoChartDatabase.drop_tables([AutoChartModel])
+    AutoChartDatabase.create_tables([AutoChartModel])

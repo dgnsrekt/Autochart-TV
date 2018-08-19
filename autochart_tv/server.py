@@ -1,7 +1,8 @@
 from .chart import Chart
 from .config import Configuration
-from .model import ChartModel, db
+from .model import AutoChartModel
 from flask import Flask, render_template, url_for, request, redirect
+import logging
 from pathlib import Path
 import random
 import string
@@ -10,17 +11,22 @@ import json
 
 
 class ChartServer:
-    logger = structlog.get_logger()
+    chart_config = Configuration()
+    if chart_config.get_server_setting('debug') == False:
+        logger = logging.getLogger('werkzeug')
+        logger.setLevel(logging.ERROR)
+    else:
+        logger = structlog.get_logger()
 
     @classmethod
     def get_server(cls):
-        chart_config = Configuration()
+
         app = Flask(__name__)
 
         @app.route('/')
         def home():
-            tickers = ChartModel.query()
-            settings = chart_config.get_settings()
+            tickers = AutoChartModel.query()
+            settings = ChartServer.chart_config.get_settings()
             ChartServer.logger.info(f'current settings: {str(settings)}')
             ChartServer.logger.info(f'open charts: {str(tickers)}')
 

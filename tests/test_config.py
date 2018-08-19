@@ -30,6 +30,8 @@ def test_config_file_not_found_error(configuration):
 def test_configuration_get_chart_setting(configuration):
     assert configuration.get_chart_setting('title') == 'autochart-tv'
 
+def test_configuration_get_server_setting(configuration):
+    assert configuration.get_server_setting('debug') == True
 
 def test_configuration_get_chart_setting_validation_error(configuration):
     with pytest.raises(ValidationError):

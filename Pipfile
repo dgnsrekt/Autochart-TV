@@ -18,6 +18,7 @@ ccxt = "*"
 peewee = "*"
 click = "*"
 fuzzyfinder = "*"
+twitter-scraper = "*"
 
 [requires]
 python_version = "3.6"
