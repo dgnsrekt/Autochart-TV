@@ -7,10 +7,12 @@ from selenium.common.exceptions import WebDriverException
 
 from autochart_tv.model import AutoChartModel, AutoChartDatabase
 from autochart_tv.exchange import ExchangeInterface
-
 from autochart_tv.webdriver import AutoChartWebDriver
+from autochart_tv.config import Configuration
 
-ACWebDriver = AutoChartWebDriver() # some settings init here
+config = Configuration()
+
+ACWebDriver = AutoChartWebDriver(port=config.get_server_setting('port')) # some settings init here
 ACSymbols = ExchangeInterface()
 
 class Command(Abstract):
@@ -106,6 +108,7 @@ class RandomStockCommand(Command):
 class ScreenShotCommand(Command):
     def execute(self, *args):
         ACWebDriver.screenshot()
+#TODO: SETTINGS COMMAND example SETTING INTERVAL D
 
 class ACManager:
     _COMMANDS = [ExitCommand(), ClearCommand(), DeleteCommand(), RandomCommand(),

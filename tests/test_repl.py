@@ -1,4 +1,4 @@
-from repl import parse_input
+from autochart_tv.repl import parse_input
 
 
 COMMANDS = ['CHART']

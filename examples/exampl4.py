@@ -1,4 +1,12 @@
-from repl import ACManager
+from pathlib import Path
+import sys
+
+newpath = Path(__file__).parent.parent
+sys.path.insert(0, str(newpath))
+
+from autochart_tv.manager import ACManager
+import requests
+
 from time import sleep
 from random import choice
 from twitter_scraper import get_tweets

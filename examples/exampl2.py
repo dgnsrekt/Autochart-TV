@@ -1,5 +1,11 @@
-from repl import ACManager
+from pathlib import Path
+import sys
 from time import sleep
+
+newpath = Path(__file__).parent.parent
+sys.path.insert(0, str(newpath))
+
+from autochart_tv.manager import ACManager
 import requests
 
 def get_coins():

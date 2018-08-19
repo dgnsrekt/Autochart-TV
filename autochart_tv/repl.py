@@ -1,5 +1,7 @@
-from manager import ACManager
-from command_prompt import AutoChartPrompt
+from autochart_tv.manager import ACManager
+from autochart_tv.prompt import AutoChartPrompt
+
+from selenium.common.exceptions import WebDriverException
 
 #TODO: ADD DEBUG FLAG
 
@@ -23,7 +25,7 @@ def parse_input(input_, commands=[]):
         args = parse_args(clean)
     return (cmd, args)
 
-def main():
+def start_ac_repl():
     ACM = ACManager()
     WORD_LIST = [command for command in ACM.commands] + ACM.tickers
     ACPrompt = AutoChartPrompt(commands=WORD_LIST)
@@ -48,4 +50,4 @@ def main():
                 acm['EXIT'].execute(*tickers)
 
 if __name__ == '__main__':
-    main()
+    start_ac_repl()

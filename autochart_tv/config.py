@@ -5,6 +5,9 @@ import structlog
 
 from .tools import validate
 
+class InvalidSettingError(Exception): #TODO: used for writing setting from repl
+    pass
+
 
 class Configuration:
     CONFIG_PATH = Path(__file__).parent.parent / 'config.toml'
@@ -15,8 +18,11 @@ class Configuration:
                      'theme': 'Dark',
                      'barstyle': 'Candles',
                      'studies':['bb']}
-                     
-    CONFIG_DEFAULT = {'chart': CHART_DEFAULT}
+    SERVER_DEFAULT = {'debug': True,
+                      'port' : 5000}
+
+    CONFIG_DEFAULT = {'chart': CHART_DEFAULT,
+                      'server': SERVER_DEFAULT}
 
     def __init__(self):
         self.logger = structlog.get_logger()
@@ -26,6 +32,10 @@ class Configuration:
     def get_settings(self):
         self._load_config_file()
         return self.settings
+
+    def get_server_setting(self, setting):
+        validate(setting, self.settings['server'], 'server')
+        return self.settings['server'][setting]
 
     def get_chart_setting(self, setting):
         validate(setting, self.settings['chart'], 'chart')
