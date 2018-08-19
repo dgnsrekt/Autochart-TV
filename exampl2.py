@@ -16,5 +16,10 @@ def get_coins():
 
 with ACManager() as ACM:
     while True:
-        ACM['CHART'].execute(*get_coins())
-        sleep(15)
+        try:
+            coins = get_coins()
+        except KeyError:
+            coins = []
+        finally:
+            ACM['CHART'].execute(*coins)
+            sleep(15)
