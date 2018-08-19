@@ -1,6 +1,28 @@
 from manager import ACManager
 from command_prompt import AutoChartPrompt
 
+#TODO: ADD DEBUG FLAG
+
+def parse_args(input_):
+    parsed = [inp.upper() for inp in input_ if len(inp) > 0]
+    if parsed:
+        return parsed
+    return None
+
+def parse_input(input_, commands=[]):
+    split = input_.split(' ')
+    clean = [s.upper() for s in split if len(s) > 0]
+
+    if len(clean) < 1:
+        return (None, None)
+    elif clean[0] in commands:
+        cmd = clean[0]
+        args = parse_args(clean[1:])
+    else:
+        cmd = None
+        args = parse_args(clean)
+    return (cmd, args)
+
 def main():
     ACM = ACManager()
     WORD_LIST = [command for command in ACM.commands] + ACM.tickers
@@ -9,20 +31,18 @@ def main():
     with ACM as acm:
         while True:
             inp = ACPrompt.get_prompt()
-            cmd = inp.split(' ')[0].upper()
-            args = inp.split(' ')[1:]
-            args = [arg for arg in args if len(arg) > 0]
+            cmd, args = parse_input(inp, commands=ACM.commands)
 
             try:
                 command = acm[cmd]
-                if len(args) > 0:
+                if args:
                     command.execute(args)
                 else:
                     command.execute()
+
             except KeyError:
-                tickers = inp.split(' ')
-                tickers = [ticker for ticker in tickers if len(ticker) > 0]
-                acm['CHART'].execute(*tickers)
+                if args:
+                    acm['CHART'].execute(*args)
 
             except WebDriverException:
                 acm['EXIT'].execute(*tickers)
