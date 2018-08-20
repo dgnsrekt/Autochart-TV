@@ -14,13 +14,13 @@ def main():
 
 @main.command('repl')
 def repl():
-    print('running repl')
+    print('running repl') # arg to change client port here
     start_ac_repl()
 
 @main.command('server')
 def server():
     print('running server')
-    port = config.get_server_setting('port')
+    port = config.get_server_setting('port') # arg to change port here
     ChartServer.get_server().run(debug=False, port=port)
 
 
