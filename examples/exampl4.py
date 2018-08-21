@@ -37,11 +37,14 @@ with ACManager() as ACM: #TODO add var to change the title
         twitter = TWITTER_NAMES
         print(f'Pulling nine tickers from {twitter} tweets')
         while True:
-            stocks = get_stocks_from_twitter(twitter)
-            if last != stocks:
-                last = stocks
-                print()
-                print(f'New stock found {stocks[0]}')
-            ACM['CHART'].execute(*stocks)
-            sleep(5)
-            print('.', end='', flush=True)
+            try:
+                stocks = get_stocks_from_twitter(twitter)
+                if last != stocks:
+                    last = stocks
+                    print()
+                    print(f'New stock found {stocks[0]}')
+                ACM['CHART'].execute(*stocks)
+                sleep(5)
+                print('.', end='', flush=True)
+            except Exception as e:
+                print(e)
