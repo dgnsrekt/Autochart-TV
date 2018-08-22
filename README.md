@@ -35,5 +35,5 @@ cd autochart_tv
 pipenv shell
 python3 cli.py repl
 or
-python3 cli.py fomodd-api.py
+python3 cli.py fomodd-api
 ```
