@@ -20,18 +20,18 @@ https://github.com/pypa/pipenv
 1. Clone the repository and install dependencies.
 ```
 git clone https://github.com/dgnsrekt/autochart-tv.git
-cd autochart_tv
+cd autochart-tv
 pipenv sync
 ```
-2. Run autochart server.
+2. Run autochart-tv server.
 ```
 pipenv shell
 python3 cli.py server
 ```
-3. Run autochart repl or Fomo Driven Development api.
+3. Run autochart-tv REPL or connect to Fomo Driven Development API.
 Open new a new terminal window.
 ```
-cd autochart_tv
+cd autochart-tv
 pipenv shell
 python3 cli.py repl
 or
