@@ -1,7 +1,7 @@
 # autochart-tv
 automated tradingview widget viewer
 
-Basic Idea
+## REPL Example
 ![Alt Text](https://github.com/dgnsrekt/autochart-tv/blob/master/doc/img/autochart_repl_chart.gif)
 ![Alt Text](https://github.com/dgnsrekt/autochart-tv/blob/master/doc/img/autochart_repl_terminal.gif)
 
