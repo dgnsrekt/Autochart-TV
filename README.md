@@ -28,7 +28,7 @@ pipenv sync
 pipenv shell
 python3 cli.py server
 ```
-3. Run autochart-tv REPL or connect to Fomo Driven Development API.
+3. Run autochart-tv REPL or connect to the Fomo Driven Development API.
 Open new a new terminal window.
 ```
 cd autochart-tv
