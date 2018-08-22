@@ -28,7 +28,7 @@ pipenv sync
 pipenv shell
 python3 cli.py server
 ```
-3. Run autochart REPL or Fomo Driven Development API.
+3. Run autochart REPL or connect to Fomo Driven Development API.
 
 Open a new terminal window.
 ```
