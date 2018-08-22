@@ -5,9 +5,14 @@ Basic Idea
 ![Alt Text](https://github.com/dgnsrekt/autochart-tv/blob/master/doc/img/autochart1.gif)
 ![Alt Text](https://github.com/dgnsrekt/autochart-tv/blob/master/doc/img/autochart2.gif)
 
-## Install Chromedriver
-Install chrome driver.
+## Required Install
+Chrome driver.
 https://sites.google.com/a/chromium.org/chromedriver/downloads
+Python 3.6
+pipenv
+https://github.com/pypa/pipenv
+
+
 
 ## Quick Start
 1. Clone the repository and install dependencies.
@@ -29,4 +34,4 @@ pipenv shell
 python3 cli.py repl
 or
 python3 cli.py fomodd-api.py
-'''
+```
