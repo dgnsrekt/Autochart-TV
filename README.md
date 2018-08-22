@@ -1,10 +1,25 @@
 # autochart-tv
-automated tradingview widget viewer
+Automate Tradingview chart widgets
 
-## REPL Example
+## REPL example
 ![Alt Text](https://github.com/dgnsrekt/autochart-tv/blob/master/doc/img/autochart_repl_chart.gif)
 ![Alt Text](https://github.com/dgnsrekt/autochart-tv/blob/master/doc/img/autochart_repl_terminal2.gif)
 
+## Simple example script
+```
+from autochart_tv.manager import ACManager
+
+with ACManager() as ACM:
+    sleep(2)
+    ACM['CHART'].execute('AAPL')
+    sleep(2)
+    ACM['CHART'].execute('BTCUSDT', 'TSLA')
+    sleep(2)
+    ACM['RANDOM'].execute()
+    sleep(2)
+    ACM['RANDOMCRYPTO'].execute(9)
+    sleep(60)
+```
 ## Required
 1. Python 3.6
 
