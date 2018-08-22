@@ -1,5 +1,5 @@
 # autochart-tv
-Automate Tradingview chart widgets
+Automate Tradingview chart widgets.
 
 ## REPL example
 ![Alt Text](https://github.com/dgnsrekt/autochart-tv/blob/master/doc/img/autochart_repl_chart.gif)
