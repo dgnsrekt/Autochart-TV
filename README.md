@@ -6,10 +6,12 @@ Basic Idea
 ![Alt Text](https://github.com/dgnsrekt/autochart-tv/blob/master/doc/img/autochart2.gif)
 
 ## Required Install
-Chrome driver.
+1. Python 3.6
+
+2. Chrome driver.
 https://sites.google.com/a/chromium.org/chromedriver/downloads
-Python 3.6
-pipenv
+
+3. Pipenv
 https://github.com/pypa/pipenv
 
 
