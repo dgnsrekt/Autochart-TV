@@ -29,7 +29,7 @@ pipenv shell
 python3 cli.py server
 ```
 3. Run autochart repl or Fomo Driven Development api.
-open new a new terminal window.
+Open new a new terminal window.
 ```
 cd autochart_tv
 pipenv shell
