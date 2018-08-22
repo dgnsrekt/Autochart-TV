@@ -1,6 +1,5 @@
 from pathlib import Path
 import sys
-from time import sleep
 
 newpath = Path(__file__).parent.parent
 sys.path.insert(0, str(newpath))
@@ -8,24 +7,44 @@ sys.path.insert(0, str(newpath))
 from autochart_tv.manager import ACManager
 import requests
 
-def get_coins():
-    url = 'https://api.fomodd.io/superfilter'
-    r = requests.get(url)
-    data = r.json()
-    binance = data['BINANCE']['coins']
-    binance = [f'BINANCE:{coin}' for coin in binance]
-    bittrex = data['BITTREX']['coins']
-    bittrex = [f'BITTREX:{coin}' for coin in bittrex]
+from time import sleep
+from random import choice
+from twitter_scraper import get_tweets
+from collections import OrderedDict
+import sys
+import re
 
-    coins = binance + bittrex
-    return coins
+# TWITTER_NAMES = ['SeekingAlpha', 'StockTexts', 'JrwlkrT']
+TWITTER_NAMES = ['SeekingAlpha']
+
+def get_stocks_from_twitter(twitter_name):
+    first_ticker_from_tweet = list()
+    tickerTweetRegex = re.compile(r'\$\D\w*')
+    for tweet in get_tweets(twitter_name, pages=1):
+        mo = tickerTweetRegex.search(tweet['text'])
+        if mo is not None:
+            first_ticker_from_tweet.append(mo.group())
+    clean = [ticker.replace('$', '') for ticker in first_ticker_from_tweet]
+    clean = list(OrderedDict.fromkeys(clean))
+    print(clean)
+    return clean[:9]
 
 with ACManager() as ACM:
+    last = ''
     while True:
-        try:
-            coins = get_coins()
-        except KeyError:
-            coins = []
-        finally:
-            ACM['CHART'].execute(*coins)
-            sleep(15)
+        twitter = choice(TWITTER_NAMES)
+        print(f'Pulling nine tickers from {twitter} tweets')
+        loops = 0
+        while True:
+            stocks = get_stocks_from_twitter(twitter)
+            if last != stocks:
+                last = stocks
+                print(f'New stock found {stocks[0]}')
+            # print(stocks)
+            ACM['CHART'].execute(*stocks)
+            sleep(5)
+            loops +=1
+            print('.', end='')
+            if loops > 10:
+                print()
+                break

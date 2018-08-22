@@ -5,6 +5,7 @@ import os
 from autochart_tv.config import Configuration
 from autochart_tv.server import ChartServer
 from autochart_tv.repl import start_ac_repl
+from autochart_tv.fomo import start_fomodd_api
 
 config = Configuration()
 
@@ -16,6 +17,11 @@ def main():
 def repl():
     print('running repl') # arg to change client port here
     start_ac_repl()
+
+@main.command('fomodd-api')
+def repl():
+    print('running repl') # arg to change client port here
+    start_fomodd_api()
 
 @main.command('server')
 def server():
