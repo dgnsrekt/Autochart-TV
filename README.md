@@ -3,7 +3,7 @@ automated tradingview widget viewer
 
 ## REPL Example
 ![Alt Text](https://github.com/dgnsrekt/autochart-tv/blob/master/doc/img/autochart_repl_chart.gif)
-![Alt Text](https://github.com/dgnsrekt/autochart-tv/blob/master/doc/img/autochart_repl_terminal.gif)
+![Alt Text](https://github.com/dgnsrekt/autochart-tv/blob/master/doc/img/autochart_repl_terminal2.gif)
 
 ## Required
 1. Python 3.6
