@@ -53,3 +53,16 @@ python3 cli.py repl
 or
 python3 cli.py fomodd-api
 ```
+## CommandList
+
+Command | Descriptions|Args
+--------|-------------|----------
+REFRESH | Refreshes the browser.|None
+EXIT | Closes the browser and ends the script.|None
+CLEAR | Deletes all charts.|None
+DELETE | Deletes the most recently displayed ticker.|None
+CHART | Displays the chart for the ticker.| ticker
+RANDOM | Generates and displays random tickers | Number of tickers. Max=9
+RANDOMSTOCK | Generates and displays random stockmarket tickers | Number of tickers. Max=9
+RANDOMCRYPTO | Generates and displays random crypto tickers | Number of tickers. Max=9
+SCREENSHOT | Takes a screenshot of the currently displayed tickers | None
