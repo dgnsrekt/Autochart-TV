@@ -68,5 +68,5 @@ RANDOMCRYPTO | Generates and displays random crypto tickers | Number of tickers.
 SCREENSHOT | Takes a screenshot of the currently displayed tickers | None
 
 ## Contact
-Twitter = Telegram = 'dgnsrekt'
-email dgnsrekt@pm.me
+* Twitter = Telegram = @dgnsrekt
+* Email = dgnsrekt@pm.me
