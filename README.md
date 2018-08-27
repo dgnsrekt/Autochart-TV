@@ -1,4 +1,4 @@
-# autochart-tv
+# Autochart-TV
 Automate Tradingview chart widgets.
 
 ## REPL example
