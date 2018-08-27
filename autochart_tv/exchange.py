@@ -4,6 +4,7 @@ import structlog
 import pandas as pd
 import random
 
+
 class ExchangeInterface:
     CRYPTO_EXCHANGES = ['binance', 'bittrex', 'poloniex']
 
@@ -58,6 +59,26 @@ class ExchangeInterface:
         else:
             return random.choice(self.all_crypto_symbols)
 
+    @classmethod
+    def get_stock_top_gainers(cls, amount=None):
+        df = pd.DataFrame(iexfinance.get_market_gainers())
+        gainers = list(df['symbol'])
+        if amount:
+            amount = ExchangeInterface.max_amount(amount)
+            return gainers[:amount]
+        else:
+            return gainers[0]
+
+    @classmethod
+    def get_stock_top_losers(self, amount=None):
+        df = pd.DataFrame(iexfinance.get_market_losers())
+        losers = list(df['symbol'])
+        if amount:
+            amount = ExchangeInterface.max_amount(amount)
+            return losers[:amount]
+        else:
+            return losers[0]
+
     def _load_crypto_exchange_symbols(self):
         for exchange__ in self.CRYPTO_EXCHANGES:
             self.logger.info(f'Downloading {exchange__} symbols.')
@@ -88,10 +109,11 @@ class ExchangeInterface:
 
 if __name__ == '__main__':
     x = ExchangeInterface()
-    print(x.crypto_tickers)
-    print(x.crypto_tickers_with_exchange)
-    print(x.stocks)
-    print(x.all_symbols)
-    print(x.get_random_symbols(9))
-    print(x.get_random_stock(9))
-    print(x.get_random_crypto(9))
+    print(x.get_stock_top_gainer(10))
+    # print(x.crypto_tickers))b
+    # print(x.crypto_tickers_with_exchange)
+    # print(x.stocks)
+    # print(x.all_symbols)
+    # print(x.get_random_symbols(9))
+    # print(x.get_random_stock(9))
+    # print(x.get_random_crypto(9))
