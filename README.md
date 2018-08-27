@@ -66,3 +66,7 @@ RANDOM | Generates and displays random tickers | Number of tickers. Max=9
 RANDOMSTOCK | Generates and displays random stockmarket tickers | Number of tickers. Max=9
 RANDOMCRYPTO | Generates and displays random crypto tickers | Number of tickers. Max=9
 SCREENSHOT | Takes a screenshot of the currently displayed tickers | None
+
+## Contact
+Twitter = Telegram = 'dgnsrekt'
+email dgnsrekt@pm.me
