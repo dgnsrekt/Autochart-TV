@@ -3,6 +3,7 @@ import iexfinance
 import structlog
 import pandas as pd
 import random
+import requests
 
 
 class ExchangeInterface:
@@ -70,7 +71,7 @@ class ExchangeInterface:
             return gainers[0]
 
     @classmethod
-    def get_stock_top_losers(self, amount=None):
+    def get_stock_top_losers(cls, amount=None):
         df = pd.DataFrame(iexfinance.get_market_losers())
         losers = list(df['symbol'])
         if amount:
@@ -78,6 +79,23 @@ class ExchangeInterface:
             return losers[:amount]
         else:
             return losers[0]
+
+    @classmethod
+    def get_fomoddio_api_superfiltered_coins(cls, amount=None):
+        url = 'https://api.fomodd.io/superfilter'
+        r = requests.get(url)
+        data = r.json()
+        binance = data['BINANCE']['coins']
+        binance = [f'BINANCE:{coin}' for coin in binance]
+        bittrex = data['BITTREX']['coins']
+        bittrex = [f'BITTREX:{coin}' for coin in bittrex]
+
+        coins = binance + bittrex
+        if amount:
+            amoutn = ExchangeInterface.max_amount(amount)
+            return coins[:amount]
+        else:
+            return coins[0]
 
     def _load_crypto_exchange_symbols(self):
         for exchange__ in self.CRYPTO_EXCHANGES:
