@@ -67,8 +67,8 @@ RANDOMSTOCK | Generates and displays random stockmarket tickers | Number of tick
 RANDOMCRYPTO | Generates and displays random crypto tickers | Number of tickers. Max=9
 TOPSTOCKGAINERS | Pull and displays top gainers from iex exchange. | Number of tickers. Max=9
 TOPSTOCKLOSERS | Pull and displays top losers from iex exchange. | Number of tickers. Max=9
-FOMODDSUPERFILTERCOMMAND | Uses https://api.fomodd.io/superfilter to filter the shit from the shitcoins | Number of tickers. Max=9
-TWITTERSTOCKSCRAPERCOMMAND | Scrapes a twitter profile for the most recent stock tickers. Returns 1 ticker with multiple ticker peers from iexexchange. | twitter profiles
+FOMODDSUPERFILTER | Uses https://api.fomodd.io/superfilter to filter the shit from the shitcoins | Number of tickers. Max=9
+TWITTERSTOCKSCRAPER | Scrapes a twitter profile for the most recent stock tickers. Returns 1 ticker with multiple ticker peers from iexexchange. | twitter profiles
 SCREENSHOT | Takes a screenshot of the currently displayed tickers | None
 
 ## Contact
