@@ -6,6 +6,7 @@ from autochart_tv.config import Configuration
 from autochart_tv.server import ChartServer
 from autochart_tv.repl import start_ac_repl
 from autochart_tv.fomo import start_fomodd_api
+from autochart_tv.fomo import start_twitter_stock_search
 from autochart_tv.top import start_gainers, start_losers
 
 config = Configuration()
@@ -39,6 +40,13 @@ def gainers():
 def losers():
     print('running tops losers from iex')  # arg to change client port here
     start_losers()
+
+
+@main.command('twitter-stock-scraper')
+@click.argument('twitter_profiles')
+def twitter_scraper(twitter_profiles):
+    print(f'search {twitter_profiles} for tickers.')
+    start_twitter_stock_search(twitter_profiles)
 
 
 @main.command('server')

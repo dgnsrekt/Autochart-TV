@@ -9,6 +9,7 @@ from autochart_tv.model import AutoChartModel, AutoChartDatabase
 from autochart_tv.exchange import ExchangeInterface
 from autochart_tv.webdriver import AutoChartWebDriver
 from autochart_tv.config import Configuration
+from autochart_tv.twitter import search_twitter_profiles_for_stock_tickers
 
 config = Configuration()
 
@@ -149,6 +150,17 @@ class FomoDDSuperFilterCommand(Command):
             ChartCommand().execute(*tickers)
 
 
+class TwitterStockScraperCommand(Command):
+    def execute(self, *args):
+        try:
+            print(args)
+            args = args[0]
+            tickers = search_twitter_profiles_for_stock_tickers(args)
+            ChartCommand().execute(*tickers)
+        except (ValueError, IndexError, TypeError) as e:
+            print('Twitter profile doesnt exist.')
+
+
 class ScreenShotCommand(Command):
     def execute(self, *args):
         ACWebDriver.screenshot()
@@ -159,7 +171,7 @@ class ACManager:
     _COMMANDS = [ExitCommand(), ClearCommand(), DeleteCommand(), RandomCommand(),
                  RandomCryptoCommand(), RandomStockCommand(), ChartCommand(), RefreshCommand(),
                  ScreenShotCommand(), TopStockGainersCommand(), TopStockLosersCommand(),
-                 FomoDDSuperFilterCommand()]
+                 FomoDDSuperFilterCommand(), TwitterStockScraperCommand()]
 
     def __init__(self):
         self.commands = dict()
