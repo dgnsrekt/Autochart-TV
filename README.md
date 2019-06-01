@@ -71,6 +71,11 @@ FOMODDSUPERFILTER | Uses https://api.fomodd.io/superfilter to filter the shit fr
 TWITTERSTOCKSCRAPER | Scrapes a twitter profile for the most recent stock tickers. Returns 1 ticker with multiple ticker peers from iexexchange. | twitter profiles
 SCREENSHOT | Takes a screenshot of the currently displayed tickers | None
 
+## Todo
+Tons of refactoring.
+Bring superfilter api back up.
+Add a feature which checks gmail api for new email alerts from Tradingview and display the chart.
+
 ## Contact
 * Twitter = Telegram = @dgnsrekt
 * Email = dgnsrekt@pm.me
