@@ -75,6 +75,7 @@ SCREENSHOT | Takes a screenshot of the currently displayed tickers | None
 Tons of refactoring.
 Bring superfilter api back up.
 Add a feature which checks gmail api for new email alerts from Tradingview and display the chart.
+Find replacement for IEX.
 
 ## Contact
 * Twitter = Telegram = @dgnsrekt
