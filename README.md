@@ -80,6 +80,7 @@ SCREENSHOT | Takes a screenshot of the currently displayed tickers | None
 
 * Find replacement for IEX.
 
+* Finviz scraper/ try out scrapy.
 ## Contact
 * Twitter = Telegram = @dgnsrekt
 * Email = dgnsrekt@pm.me
