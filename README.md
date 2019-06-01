@@ -72,13 +72,13 @@ TWITTERSTOCKSCRAPER | Scrapes a twitter profile for the most recent stock ticker
 SCREENSHOT | Takes a screenshot of the currently displayed tickers | None
 
 ## Todo
-Tons of refactoring.
+* Tons of refactoring.
 
-Bring superfilter api back up.
+* Bring superfilter api back up.
 
-Add a feature which checks gmail api for new email alerts from Tradingview and display the chart.
+* Add a feature which checks gmail api for new email alerts from Tradingview and display the chart.
 
-Find replacement for IEX.
+* Find replacement for IEX.
 
 ## Contact
 * Twitter = Telegram = @dgnsrekt
