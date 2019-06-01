@@ -78,6 +78,7 @@ SCREENSHOT | Takes a screenshot of the currently displayed tickers | None
 * Find replacement for IEX.
 * Finviz scraper/ try out scrapy.
 * Maybe write some test. ¯\_(ツ)_/¯
+* Maybe a websocket api
 
 ## Contact
 * Twitter = Telegram = @dgnsrekt
